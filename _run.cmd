@@ -11,7 +11,7 @@ ECHO 3. install
 ECHO 4. generate documentation
 ECHO.
 
-CHOICE /C 123s /N /D 1 /T 5 /M "select... (default: run)"
+CHOICE /C 1234 /N /D 1 /T 5 /M "select... (default: run)"
 set task=%ERRORLEVEL%
 IF %task% == 4 GOTO doc
 IF %task% == 3 GOTO install
@@ -21,7 +21,7 @@ IF %task% == 1 GOTO run
 echo %task%
 pause
 :run
-if %task%==1 ( call ng serve --open --watch ) else ( call npm run ssr )
+if %task%==1 ( call npm run start) else ( call npm run ssr )
 GOTO End
 
 :install
