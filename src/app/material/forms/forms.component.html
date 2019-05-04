@@ -1,0 +1,134 @@
+<h3>mat-form-field</h3>
+<p>- appearance="legacy (default) | stadard | fill | outline"</p>
+<p>- adding 'required' will add '*' to the floating label</p>
+<p>- color= primary (default) | accent | warn</p>
+
+<mat-form-field appearance="outline" color="primary">
+  <mat-label>email</mat-label>
+  <input matInput placeholder="Placeholder" required [formControl]="email" />
+  <mat-icon matPrefix>sentiment_very_satisfied</mat-icon>
+  <mat-icon matSuffix>visibility</mat-icon>
+  <mat-hint>Hint (start)</mat-hint>
+  <mat-hint align="end">Hint (end)</mat-hint>
+  <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+</mat-form-field>
+<hr />
+
+<h3>checkbox</h3>
+<mat-checkbox>Check me!</mat-checkbox><br />
+<mat-checkbox labelPosition="before">labelPosition: before</mat-checkbox><br />
+<mat-checkbox indeterminate="true" color="primary">indeterminate</mat-checkbox>
+<hr />
+
+<h3>Date picker</h3>
+<mat-form-field>
+  <input matInput [matDatepicker]="myDatepicker" />
+  <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+  <mat-datepicker #myDatepicker></mat-datepicker>
+</mat-form-field>
+<br />
+
+<h3>select</h3>
+
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings">
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+      topping
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+
+<p>multiple:</p>
+<mat-form-field>
+  <mat-label>Toppings</mat-label>
+  <mat-select [formControl]="toppings" multiple>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+      topping
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<br />
+
+<p>
+  custom label after selecting:<br />
+  first item name (+3 others)
+</p>
+<mat-form-field>
+  <mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+    <mat-select-trigger>
+      {{ toppings.value ? toppings.value[0] : "" }}
+      <span
+        *ngIf="toppings.value?.length > 1"
+        class="example-additional-selection"
+      >
+        (+{{ toppings.value.length - 1 }}
+        {{ toppings.value?.length === 2 ? "other" : "others" }})
+      </span>
+    </mat-select-trigger>
+    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+      topping
+    }}</mat-option>
+  </mat-select>
+</mat-form-field>
+<hr />
+
+<h3>slider</h3>
+<mat-slider
+  min="1"
+  max="20"
+  step="2"
+  value="5"
+  color="primary"
+  thumbLabel
+  tickInterval="5"
+></mat-slider>
+<mat-slider invert></mat-slider>
+<mat-slider vertical></mat-slider>
+<br />
+<mat-slide-toggle color="primary">on/off Slider</mat-slide-toggle>
+
+<hr />
+
+<h3>autocomplete</h3>
+<form>
+  <mat-form-field>
+    <input
+      type="text"
+      placeholder="Pick one"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<p>with filering while typing:</p>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input
+      type="text"
+      placeholder="Pick one"
+      aria-label="Number"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let option of (filteredOptions | async)"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<hr />

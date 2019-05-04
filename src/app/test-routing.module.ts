@@ -1,26 +1,25 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { ErrorComponent } from "./error/error.component";
+import { IndexComponent } from "./index/index.component";
 
 const routes: Routes = [
-  {
-    path: "material",
-    loadChildren: "./material/material.module#MaterialModule"
-  },
   {
     path: "angular",
     loadChildren: "./angular-core/angular-core.module#AngularCoreModule"
   },
   {
+    path: "material",
+    loadChildren: "./material/material.module#MaterialModule"
+  },
+  {
     path: "formly",
     loadChildren: "./formly/formly.module#FormlyExampleModule"
   },
-  { path: "", redirectTo: "", pathMatch: "full" },
-  { path: "**", component: ErrorComponent }
+  { path: "", component: IndexComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class TestRoutingModule {}
