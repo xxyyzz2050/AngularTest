@@ -7,7 +7,7 @@ import { TestService } from "../test.service";
   styleUrls: ["./index.component.scss"]
 })
 export class IndexComponent implements OnInit {
-  constructor(private ts: TestService) {}
+  constructor(public ts: TestService) {}
 
   ngOnInit() {
     //  this.ts.test();
