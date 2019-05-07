@@ -15,6 +15,10 @@ const routes: Routes = [
     path: "formly",
     loadChildren: "./formly/formly.module#FormlyExampleModule"
   },
+  {
+    path: "get-data",
+    loadChildren: "./get-data/get-data.module#GetDataModule"
+  },
   { path: "", redirectTo: "", pathMatch: "full" },
   { path: "**", component: ErrorComponent }
 ];
