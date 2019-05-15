@@ -4,7 +4,7 @@ import fs from "fs";
 import Path from "path";
 import { objectType, isEmpty, now } from "./general";
 
-export default class {
+export class Files {
   /*
   todo:
   - add this.root to paths in all methods
@@ -19,6 +19,7 @@ export default class {
    * @param  root        [description]
    */
   constructor(public root: types.files.PathLike) {
+    console.log("===Files()==="); //todo: remove all logs, use unit test
     this.root = this.path(root);
     return this;
   }
