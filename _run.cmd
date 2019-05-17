@@ -5,8 +5,8 @@ CLS
 
 ECHO.
 ECHO what you want to do?
-ECHO 1. run
-ECHO 2. run (ssr)
+ECHO 1. run (ssr)
+ECHO 2. run (serve)
 ECHO 3. install
 ECHO 4. generate documentation
 ECHO.
@@ -21,7 +21,7 @@ IF %task% == 1 GOTO run
 echo %task%
 pause
 :run
-if %task%==1 ( call npm run start) else ( call npm run ssr )
+if %task%==1 ( call npm run start) else ( call npm run serve )
 GOTO End
 
 :install

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o --watch",
-    "ssr": "npm run build:client-and-server-bundles && npm run compile:server && npm run serve:ssr --open",
+    "start": "npm run build:client-and-server-bundles && npm run compile:server && npm run serve:ssr --open",
+    "serve": "ng serve -o --watch",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
