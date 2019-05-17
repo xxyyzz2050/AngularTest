@@ -7,10 +7,11 @@ import { objectType, isEmpty, now } from "./general";
 export class Files {
   /*
   todo:
+  - extend the native "fs": add methods to it (i.e: fs.newMethod=fn(){..}) then re export it
   - add this.root to paths in all methods
   - provide file path to all methods, to avoid creating a new instance for every file
-   i.e new file(path).size() -> new file().size(path)
-   if path didn't provided, this.filePath will be used
+    i.e new file(path).size() -> new file().size(path)
+    if path didn't provided, this.filePath will be used
   */
 
   /**

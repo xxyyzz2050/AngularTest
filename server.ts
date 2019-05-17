@@ -8,8 +8,10 @@ import { provideModuleMap } from "@nguniversal/module-map-ngfactory-loader";
 import * as express from "express";
 import { join } from "path";
 
+import { Files } from "./projects/eldeeb/src/public-api"; // todo: import from "eldeeb", path already defined in tsconfig.json
+
 // Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
+//enableProdMode();
 
 // Express server
 const app = express();
@@ -35,7 +37,10 @@ app.engine(
 app.set("view engine", "html");
 app.set("views", DIST_FOLDER);
 
-app.get("/db.json", (req, res) => res.json({ a: "AA" }));
+app.get("/db.json", (req, res) => {
+  let files = new Files("./"); //will console to cmd window
+  return res.json({ a: "AA" });
+});
 
 // Example Express Rest API endpoints
 // app.get('/api/**', (req, res) => { });

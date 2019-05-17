@@ -6,15 +6,17 @@ contains all types for all classes, organised in namespaces, each namespace cont
 todo: namespace Vs module https://www.typescriptlang.org/docs/handbook/modules.html -> Working with Other JavaScript Libraries -> Ambient Modules
 */
 namespace types {
-  export type TypeOptions = {
-    log?: boolean; //log some events to the console
-    debug?: boolean; //add 'debugger' mark
-    minLogLevel?: string;
-    mark?: string; //the child class of this class ex: promise,files,...
-  };
+  export namespace general {
+    export type TypeOptions = {
+      log?: boolean; //log some events to the console
+      debug?: boolean; //add 'debugger' mark
+      minLogLevel?: string;
+      mark?: string; //the child class of this class ex: promise,files,...
+    };
 
-  export interface obj {
-    [key: string]: any;
+    export interface obj {
+      [key: string]: any;
+    }
   }
 
   export namespace files {
@@ -78,7 +80,7 @@ namespace types {
     }
 
     //todo: specify keys for connectionOptions, modelOptions
-    export interface connectionOptions extends index.obj {}
-    export interface modelOptions extends index.obj {}
+    export interface connectionOptions extends general.obj {}
+    export interface modelOptions extends general.obj {}
   }
 }
